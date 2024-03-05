@@ -1,0 +1,122 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class CreadorController extends Controller
+{
+    public function vista(){
+        $clases = [
+            'cazarrecompensas' => [
+                'talentos' => ['asesino', 'tecnificado', 'supervivencia']
+            ],
+            'pionero' => [
+                'talentos' => ['fronterizo', 'explorador', 'comerciante']
+            ],
+            'pistolero_sueldo' => [
+                'talentos' => ['guardaespaldas', 'incursor', 'mercenario']
+            ],
+            'contrabandista' => [
+                'talentos' => ['piloto', 'granuja', 'ladrón']
+            ],
+            'técnico' => [
+                'talentos' => ['mecanico', 'clandestino', 'informatico']
+            ]
+        ];
+        $especies = [
+            'jawa' => [
+                'umbral_herida' => 9,
+                'umbral_tension' => 10,
+                'exp_inicial' => 100,
+                'capacidades_especiales' => [
+                    'Morador del Desierto' => 'Los jawa eliminan las desventajas por condiciones
+                    ambientales áridas',
+                    'Tamaño' => 'Los jawas tienen una Silueta de 0'
+                ],
+                'caracteristicas' => [
+                    'fortaleza' => 2,
+                    'agilidad' => 2,
+                    'intelecto' => 3,
+                    'astucia' => 2,
+                    'voluntad' => 2,
+                    'presencia' => 1
+                ]
+                ],
+            'Arkaniano' => [
+                'umbral_herida' => 10,
+                'umbral_tension' => 10,
+                'exp_inicial' => 100,
+                'capacidades_especiales' => [
+                    'Arkaniano' => 'Los arkanianos tienen ventana en las acciones de coacción',
+                    'Elite Intelectual' => 'Los arkananos tienen ventaja en todas las tiradas de
+                    Habilidades de Conocimientos'
+                ],
+                'caracteristicas' => [
+                    'fortaleza' => 2,
+                    'agilidad' => 2,
+                    'intelecto' => 3,
+                    'astucia' => 2,
+                    'voluntad' => 2,
+                    'presencia' => 1
+                ]
+                ],
+            'Herglic' => [
+                'umbral_herida' => 14,
+                'umbral_tension' => 10,
+                'exp_inicial' => 90,
+                'capacidades_especiales' => [
+                    'Herglic' => 'Los herglic tienen ventana en las acciones de coacción o carisma',
+                ],
+                'caracteristicas' => [
+                    'fortaleza' => 3,
+                    'agilidad' => 2,
+                    'intelecto' => 2,
+                    'astucia' => 2,
+                    'voluntad' => 1,
+                    'presencia' => 2
+                ]
+                ],
+            'Nautolan' => [
+                'umbral_herida' => 12,
+                'umbral_tension' => 10,
+                'exp_inicial' => 100,
+                'capacidades_especiales' => [
+                    'Nautolan' => 'Los nautolan tienen ventana en las acciones de atletismo',
+                    'Anfibio' => 'Los nautolan pueden respirar bajo el agua sin penalización alguna',
+                    'Sensor de Feromonas' => 'Los nautolan pueden eliminar toda desventaja impuesta por 
+                    la ocultación de un objetivo que esté a Corto Alcance'
+                ],
+                'caracteristicas' => [
+                    'fortaleza' => 2,
+                    'agilidad' => 2,
+                    'intelecto' => 2,
+                    'astucia' => 2,
+                    'voluntad' => 2,
+                    'presencia' => 2
+                ]
+                ],
+            'Wookiee' => [
+                'umbral_herida' => 14,
+                'umbral_tension' => 8,
+                'exp_inicial' => 90,
+                'capacidades_especiales' => [
+                    'Wookiee' => 'Los Wookiee tienen ventana en las peleas',
+                    'Furia wookiee' => 'Si un wookiee a sufrido heridas, añadimos +1 al daño infiglido con ataques de
+                    pelea y cuerpo a cuerpo. Si un wookiee sufre heridas críticas, se sustituye el anterior +1 por un +2'
+                ],
+                'caracteristicas' => [
+                    'fortaleza' => 2,
+                    'agilidad' => 2,
+                    'intelecto' => 2,
+                    'astucia' => 2,
+                    'voluntad' => 2,
+                    'presencia' => 2
+                ]
+            ]
+            ];
+    }
+    public function crear(Request $request) {
+        
+    }
+}
