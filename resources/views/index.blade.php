@@ -29,15 +29,15 @@
         <div class="text-center">
             <a href="/ruta-listado" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Personajes</div>
-                <img src="{{asset('/img/marte.png')}}">
+                <img src="{{ asset ('/img/marte.png') }}">
             </a> 
             <a href="/ruta-creacion" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Crear personaje</div>
-                <img src="{{asset('/img/tierra.png')}}">
+                <img src="{{ asset ('/img/tierra.png') }}">
             </a>
             <a href="/ruta-login" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Iniciar sesión</div>
-                <img src="{{asset('/img/morado.png')}}">
+                <img src="{{ asset ('/img/morado.png') }}">
             </a>
         </div>
     </div>

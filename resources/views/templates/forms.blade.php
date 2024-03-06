@@ -8,13 +8,25 @@
   <!-- CSS Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-  <!-- Marcador donde incluiremos el título de la página. El primer parámetro (title) contiene el identificador y el segundo (Tienda online) contiene el valor por defecto que se usará en caso de que no se le asigne ningún valor al marcador-->
+  <!-- CSS espacio -->
+
+  <link href="{{ asset('/css/espacio.css') }}" rel="stylesheet" />
+
+  <!-- Css personalizado -->
+
+  <link href="{{ asset('/css/formulario.css') }}" rel="stylesheet" /> 
+
+  <!-- Marcador donde incluiremos el título de la página -->
   
   <title>@yield('title', 'Plantilla de formularios')</title>   
 
 </head>
 
-<body>
+<body class="wrapper">
+
+
+  <canvas></canvas>
+
   <!-- header -->
 
   <header class="masthead bg-primary text-white text-center py-4">
@@ -24,7 +36,7 @@
   </header>
   <!-- header -->
   
-  <!-- Cuerpo que será sustituido en las vistas hijas donde se añadiran las graficas visuales -->
+  <!-- Cuerpo que será sustituido en las vistas hijas donde se añadira cada formulario individualizado -->
   <div class="container">
     @yield('content')
   </div>
@@ -33,6 +45,8 @@
   <!-- JS Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
+  <!-- JS Espacio -->
+  <script src="{{ asset('/js/espacio.js') }}"></script>
 
 </body>
 

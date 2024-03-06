@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 
+Route::get('/formularioPersonaje', 'App\Http\Controllers\FormulariosController@index' ) -> name('formularioPersonaje');
+Route::get('/formularioNombre', 'App\Http\Controllers\FormulariosController@formularioNombre' ) -> name('formularioNombre');
+
