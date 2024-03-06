@@ -26,20 +26,14 @@
 
     <!--Cuerpo con los enlaces -->
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="text-center">
-            <a href="/ruta-listado" class="btn btn-lg m-3 centered-link transparente zoom-image">
-                <div class="overlay-text">Personajes</div>
-                <img src="{{ asset ('/img/marte.png') }}">
-            </a> 
-            <a href="/ruta-creacion" class="btn btn-lg m-3 centered-link transparente zoom-image">
-                <div class="overlay-text">Crear personaje</div>
-                <img src="{{ asset ('/img/tierra.png') }}">
-            </a>
-            <a href="/ruta-login" class="btn btn-lg m-3 centered-link transparente zoom-image">
-                <div class="overlay-text">Iniciar sesión</div>
-                <img src="{{ asset ('/img/morado.png') }}">
-            </a>
-        </div>
+        <div class="wrapper2">
+            <div class="image-wrapper">
+            <img class="imagen_personaje" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1583&q=80" /></div>
+            <div class="header-wrapper">
+              <h1>Poster Art</h1>
+              <h1>See Project</h1>
+            </div>
+          </div>
     </div>
 
 
