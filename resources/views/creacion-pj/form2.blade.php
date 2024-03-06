@@ -1,39 +1,77 @@
-<div>
-    <form action="">
-        <label for="">Profesión</label>
-        <select name="" id="">
-            <option value="cazarrecompensas">Cazarrecompensas</option>
-            <option value="pionero">Pionero</option>
-            <option value="contrabandista">Contrabandista</option>
-            <option value="tecnico">Técnico</option>
-            <option value="pistolero_sueldo">Pistolero a sueldo</option>
-        </select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
 
-        <label for="">Talento</label>
-        <select name="cazarrecompensas" id="cazarrecompensas">
-            <option value="asesino">Asesino</option>
-            <option value="tecnificado">Tecnificado</option>
-            <option value="supervivivencia">Supervivivencia</option>
-        </select>
-        <select name="pionero" id="pionero">
-            <option value="fronterizo">Fronterizo</option>
-            <option value="explorador">Explorador</option>
-            <option value="Comerciante">Comerciante</option>
-        </select>
-        <select name="contrabandista" id="contrabandista">
-            <option value="piloto">Piloto</option>
-            <option value="granuja">Granuja</option>
-            <option value="ladron">Ladrón</option>
-        </select>
-        <select name="tecnico" id="tecnico">
-            <option value="mecanico">Mecánico</option>
-            <option value="clandestino">Clandestino</option>
-            <option value="pirata_informatico">Pirata informático</option>
-        </select>
-        <select name="pistolero_sueldo" id="pistolero_sueldo">
-            <option value="guardaespaldas">Guardaespaldas</option>
-            <option value="incursor">Incursor</option>
-            <option value="mercenario">Mercenario</option>
-        </select>
-    </form>
-</div>
+        document.addEventListener("DOMContentLoaded", function() {
+
+    function cambiar_select(){
+        let profesion = document.getElementById("profesiones").value;
+        select_hijo(profesion);
+        };
+    function select_padre(){
+        let profesion = document.getElementById("profesiones").value;
+        let profesiones = @json($viewData['profesiones']);
+        let nombre_profesiones = Object.keys(profesiones);
+        let select = document.getElementById("profesiones");
+        select.innerHTML = "";
+
+        nombre_profesiones.forEach(function(profesion){
+            let option = document.createElement("option");
+            option.value = profesion;
+            option.text = profesion;
+
+            select.appendChild(option);
+        });
+        cambiar_select();
+    }
+
+    function select_hijo(profesion){
+        let profesiones = @json($viewData['profesiones']);
+        let talentos = profesiones[profesion]['talentos'];
+        let select = document.getElementById("talentos");
+        select.innerHTML = "";
+
+        talentos.forEach(function(talento){
+            let option = document.createElement("option");
+            option.value = talento;
+            option.text = talento;
+
+            select.appendChild(option);
+        });
+    }
+    select_padre();
+    
+    var cambio = document.getElementById('profesiones');
+    cambio.addEventListener('change', function() { cambiar_select(cambio) }, false);
+        });
+    
+    </script>
+</head>
+<body>
+    <div>
+        <form>
+            <label for="">Profesión</label>
+            <select name="profesiones[]" id="profesiones">
+                <option value="cazarrecompensas">Cazarrecompensas</option>
+                <option value="pionero">Pionero</option>
+                <option value="contrabandista">Contrabandista</option>
+                <option value="tecnico">Técnico</option>
+                <option value="pistolero_sueldo">Pistolero a sueldo</option>
+            </select>
+    
+            <label for="">Talento</label>
+            <select name="talentos[]" id="talentos">
+                <option value="asesino">Asesino</option>
+                <option value="tecnificado">Tecnificado</option>
+                <option value="supervivivencia">Supervivivencia</option>
+            </select>
+            <img src="" alt="" id="imagen">
+        </form>
+    </div>
+</body>
+</html>

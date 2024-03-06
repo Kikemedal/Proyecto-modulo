@@ -6,21 +6,40 @@ use Illuminate\Http\Request;
 
 class CreadorController extends Controller
 {
-    public function vista(){
-        $clases = [
-            'cazarrecompensas' => [
+
+    public function index()
+    {
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Products - Online Store";
+        return view('creacion-pj.form2')->with("viewData", $viewData);
+    }
+
+    public function form1_envio(Request $Request)
+    {
+        $datos = [];
+        $Request->validate([
+            "nombre" => "required|max:255"
+        ]);
+        $nuevo_personaje = array();
+        $nombre = $Request->input('nombre');
+        $nuevo_personaje["nombre"] = $nombre;
+    }
+
+    public function form2(){
+        $profesiones = [
+            'Cazarrecompensas' => [
                 'talentos' => ['asesino', 'tecnificado', 'supervivencia']
             ],
-            'pionero' => [
+            'Pionero' => [
                 'talentos' => ['fronterizo', 'explorador', 'comerciante']
             ],
-            'pistolero_sueldo' => [
+            'Pistolero a sueldo' => [
                 'talentos' => ['guardaespaldas', 'incursor', 'mercenario']
             ],
-            'contrabandista' => [
+            'Contrabandista' => [
                 'talentos' => ['piloto', 'granuja', 'ladrón']
             ],
-            'técnico' => [
+            'Técnico' => [
                 'talentos' => ['mecanico', 'clandestino', 'informatico']
             ]
         ];
@@ -115,6 +134,11 @@ class CreadorController extends Controller
                 ]
             ]
             ];
+            $viewData = [];
+            $viewData["title"] = "Admin Page - Products - Online Store";
+            $viewData["especies"] = $especies;
+            $viewData["profesiones"] = $profesiones;
+            return view('creacion-pj.form2')->with("viewData", $viewData);
     }
     public function crear(Request $request) {
         
