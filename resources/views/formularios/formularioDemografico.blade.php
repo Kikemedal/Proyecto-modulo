@@ -1,6 +1,6 @@
 @extends('templates.forms')
 
-@section('subtitle', 'Completa el nombre y la raza')
+@section('subtitle', 'Completa los datos básicos')
 
 @section('content')
 

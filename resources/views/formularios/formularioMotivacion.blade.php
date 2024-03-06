@@ -1,6 +1,6 @@
 @extends('templates.forms')
 
-@section('subtitle', 'Completa el nombre y la raza')
+@section('subtitle', 'Añade la motivación de tu personaje')
 
 @section('content')
 
