@@ -1,7 +1,7 @@
 function cargar_personajes(){
   let personajes = {
     0: {
-      'nombre': "Pepe Luis Segundo",
+      'nombre': "Pepe Luis II",
       'raza': "Humano mandaloriano",
       'profesion': "Cazarrecompensas",
       'talento': "asesino",
@@ -65,7 +65,7 @@ function cargar_personajes(){
       datos.innerHTML = 'Nombre: '+ personajes[contador]['nombre'] +
       ' <br>Raza: '+ personajes[contador]['raza']+
       ' <br>Profesión: '+ personajes[contador]['profesion'] +
-      ' <br>Talento:'+ personajes[contador]['talento'];
+      ' <br>Talento: '+ personajes[contador]['talento'];
 
       // Agregar el nombre y los datos al contenedor del encabezado
       headerWrapper.appendChild(nombre);
