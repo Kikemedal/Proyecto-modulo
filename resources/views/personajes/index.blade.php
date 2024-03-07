@@ -25,19 +25,72 @@
     </header>
 
     <!--Cuerpo con los enlaces -->
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="wrapper2">
-            <div class="image-wrapper">
-            <img class="imagen_personaje" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1583&q=80" /></div>
-            <div class="header-wrapper">
-              <h1>Poster Art</h1>
-              <h1>See Project</h1>
+    <div class="div">
+        <div class=" justify-content-center align-items-center" id="big-div">
+            <div class="contenido">
+                <div class="wrapper2">
+                    <div class="image-wrapper">
+                        <img class="imagen_personaje" src="img/mandalorian.jpg" />
+                    </div>
+                    <div class="header-wrapper">
+                      <h2 class="nombre">PEPE LUIS SEGUNDO</h2>
+                      <h3 class="datos">Nombre: Pepe Luis Segundo <br>
+                        Raza: Humano mandaloriano <br>
+                        Profesión: Cazarrecompensas <br>
+                        Talento: Asesino
+                      </h3>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="contenido">
+                <div class="wrapper2">
+                    <div class="image-wrapper">
+                        <img class="imagen_personaje" src="img/ren.jpg" />
+                    </div>
+                    <div class="header-wrapper">
+                      <h2 class="nombre">Kyla Ran</h2>
+                      <h3 class="datos">Nombre: Kyla Ran <br>
+                        Raza: Humano <br>
+                        Profesión: Asesino a sueldo <br>
+                        Talento: Mercenario
+                      </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="contenido">
+                <div class="wrapper2">
+                    <div class="image-wrapper">
+                        <img class="imagen_personaje" src="img/alex.jpg" />
+                    </div>
+                    <div class="header-wrapper">
+                      <h2 class="nombre">Alex</h2>
+                      <h3 class="datos">Nombre: Alex <br>
+                        Raza: Humano <br>
+                        Profesión: Contrabandista <br>
+                        Talento: Piloto
+                      </h3>
+                    </div>
+                </div>
+            </div> 
+            <div class="contenido">
+                <div class="wrapper2">
+                    <div class="image-wrapper">
+                        <img class="imagen_personaje" src="img/jawa.jpg" />
+                    </div>
+                    <div class="header-wrapper">
+                      <h2 class="nombre">Terimis Sela</h2>
+                      <h3 class="datos">Nombre: Terimis Sela <br>
+                        Raza: Jawa <br>
+                        Profesión: Pionero <br>
+                        Talento: Comerciante
+                      </h3>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <br>
     </div>
 
-
-    
     <!-- JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- JS personalizado -->
