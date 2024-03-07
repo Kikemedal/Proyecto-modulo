@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\character;
 use Illuminate\Http\Request;
 
 class PersonajesController extends Controller
@@ -10,6 +11,7 @@ class PersonajesController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Admin Page - Products - Online Store";
+        $viewData['personajes'] = character::all();
         return view('personajes.index')->with("viewData", $viewData);
     }
 }

@@ -14,7 +14,13 @@
     <title>Comienza la aventura</title>
 </head>
 <body class="wrapper">
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Código a ejecutar cuando la página se carga
+            let profesiones = @json($viewData['personajes']);
+            cargar_personajes(profesiones);
+        });
+    </script>
     <canvas></canvas>
 
 

@@ -1,5 +1,5 @@
-function cargar_personajes(){
-  let personajes = {
+function cargar_personajes(personajes){
+  let personajes2 = {
     0: {
       'nombre': "Pepe Luis II",
       'raza': "Humano mandaloriano",
@@ -59,13 +59,13 @@ function cargar_personajes(){
       headerWrapper.classList.add('header-wrapper');
       const nombre = document.createElement('h2');
       nombre.classList.add('nombre');
-      nombre.textContent = personajes[contador]['nombre'];
+      nombre.textContent = personajes[contador]['name'];
       const datos = document.createElement('h3');
       datos.classList.add('datos');
-      datos.innerHTML = 'Nombre: '+ personajes[contador]['nombre'] +
-      ' <br>Raza: '+ personajes[contador]['raza']+
+      datos.innerHTML = 'Nombre: '+ personajes[contador]['name'] +
+      ' <br>Raza: '+ personajes[contador]['species']+
       ' <br>Profesión: '+ personajes[contador]['profesion'] +
-      ' <br>Talento: '+ personajes[contador]['talento'];
+      ' <br>Talento: '+ personajes[contador]['talent'];
 
       // Agregar el nombre y los datos al contenedor del encabezado
       headerWrapper.appendChild(nombre);
@@ -86,5 +86,4 @@ function cargar_personajes(){
         });
 
 }
-cargar_personajes();
 
