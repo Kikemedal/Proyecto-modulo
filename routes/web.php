@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', "App\Http\Controllers\CreadorController@form2")->name("creacion-pj.form2");
+Route::get('/form1', "App\Http\Controllers\CreadorController@form1")->name("creacion-pj.form1");
+Route::get('/form2', "App\Http\Controllers\CreadorController@form2")->name("creacion-pj.form2");
 Route::get('/personajes', "App\Http\Controllers\PersonajesController@index")->name("personajes.index");
 
 Auth::routes();
