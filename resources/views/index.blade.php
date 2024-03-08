@@ -19,9 +19,21 @@
 
 
     <header class="masthead headerbackground text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column textoh2">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="textoh2 flex-grow-1 text-center">
             <h2>Comienza la aventura</h2>
         </div>
+        @if (Auth::check())
+            <div class="d-flex align-items-center">
+                <img class="user-icon" src="{{ asset('/img/usuario.png') }}" alt="User Icon">
+                <span class="user-name">{{ Auth::user()->name }}</span>
+            </div>
+        @else
+            <div class="d-flex align-items-center">
+                <a href="{{ route('register') }}" class="btn btn-primary transparente boton-registrar">Registrate</a>
+            </div>
+        @endif
+    </div>
     </header>
 
     <!--Cuerpo con los enlaces -->
@@ -35,7 +47,7 @@
                 <div class="overlay-text">Crear personaje</div>
                 <img src="{{ asset ('/img/tierra.png') }}">
             </a>
-            <a href="/ruta-login" class="btn btn-lg m-3 centered-link transparente zoom-image">
+            <a href=  "{{ route('login') }}" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Iniciar sesión</div>
                 <img src="{{ asset ('/img/morado.png') }}">
             </a>

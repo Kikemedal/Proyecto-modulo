@@ -25,9 +25,6 @@ Route::get('/formularioNombre', 'App\Http\Controllers\FormulariosController@form
 
 
 
-
-
-
 Auth::routes();
 
 

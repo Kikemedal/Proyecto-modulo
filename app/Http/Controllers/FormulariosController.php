@@ -17,5 +17,11 @@ class FormulariosController extends Controller
 
 
 
+    public function crearPersonaje(){
+        
+    }
+
+
+
     
 }
