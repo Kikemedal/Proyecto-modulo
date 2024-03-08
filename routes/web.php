@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 //Ruta de Inicio
 Route::get('/', function () {
@@ -26,5 +28,10 @@ Route::get('/formularioNombre', 'App\Http\Controllers\FormulariosController@form
 
 
 Auth::routes();
+
+//rutas hechas por Ian
+Route::get('/form1', "App\Http\Controllers\CreadorController@form1")->name("creacion-pj.form1");
+Route::get('/form2', "App\Http\Controllers\CreadorController@form2")->name("creacion-pj.form2");
+Route::get('/personajes', "App\Http\Controllers\PersonajesController@index")->name("personajes.index");
 
 
