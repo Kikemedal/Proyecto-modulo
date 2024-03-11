@@ -140,7 +140,7 @@ class CreadorController extends Controller
             return view('creacion-pj.form1')->with("viewData", $viewData);
     }
 
-    public function form2(){
+    public function form2(Request $Request){
         $profesiones = [
             'Cazarrecompensas' => [
                 'talentos' => ['asesino', 'tecnificado', 'supervivencia']

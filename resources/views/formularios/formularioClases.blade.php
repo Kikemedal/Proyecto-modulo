@@ -52,9 +52,9 @@ cambio.addEventListener('change', function() { cambiar_select(cambio) }, false);
 
 </script>
 <div>
-    <form>
+    <form action="{{ route('formularioClasesEnviar') }}">
         <label for="">Profesión</label>
-        <select name="profesiones[]" id="profesiones">
+        <select name="profesiones" id="profesiones">
             <option value="cazarrecompensas">Cazarrecompensas</option>
             <option value="pionero">Pionero</option>
             <option value="contrabandista">Contrabandista</option>
@@ -63,12 +63,12 @@ cambio.addEventListener('change', function() { cambiar_select(cambio) }, false);
         </select>
 
         <label for="">Talento</label>
-        <select name="talentos[]" id="talentos">
+        <select name="talentos" id="talentos">
             <option value="asesino">Asesino</option>
             <option value="tecnificado">Tecnificado</option>
             <option value="supervivivencia">Supervivivencia</option>
         </select>
-        <img src="" alt="" id="imagen">
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
 

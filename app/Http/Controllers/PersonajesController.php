@@ -14,4 +14,11 @@ class PersonajesController extends Controller
         $viewData['personajes'] = character::all();
         return view('personajes.index')->with("viewData", $viewData);
     }
+
+    public function mostarPersonaje($id){
+        $viewData = [];
+        $viewData["title"] = "Admin Page - Products - Online Store";
+        $viewData['personaje'] = character::find($id);
+        return view('personajes.mostrar')->with("viewData", $viewData);
+    }
 }

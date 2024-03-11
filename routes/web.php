@@ -22,9 +22,12 @@ Route::get('/', function () {
 
 
 //Rutas formulario
-Route::get('/formularioPersonaje', 'App\Http\Controllers\FormulariosController@index' ) -> name('formularioPersonaje');
 Route::get('/formularioNombre', 'App\Http\Controllers\FormulariosController@formularioNombre' ) -> name('formularioNombre');
-
+Route::get('/formularioClases', 'App\Http\Controllers\FormulariosController@formularioNombreEnviar' ) -> name('formularioNombreEnviar');
+Route::get('/formularioDemografico', 'App\Http\Controllers\FormulariosController@formularioClasesEnviar' ) -> name('formularioClasesEnviar');
+Route::get('/formularioMotivacionsEnviar', 'App\Http\Controllers\FormulariosController@formularioDemograficoEnviar' ) -> name('formularioDemograficoEnviar');
+Route::post('/formularioPersonaje1', 'App\Http\Controllers\FormulariosController@formularioMotivacionEnviar' ) -> name('formularioMotivacionEnviar');
+Route::get('/formularioPersonaje', 'App\Http\Controllers\PersonajesController@formulario' ) -> name('formularioPersonaje');
 
 
 Auth::routes();

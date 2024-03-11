@@ -76,7 +76,7 @@
     
 </script>
 <div class="contenedor">
-    <form action="" id="form">
+    <form action="{{ route('formularioNombreEnviar') }}" id="form">
         <label for="">Nombre del personaje</label>
         <input name="nombre" id="nombre" type="text">
         <label for="">Raza</label>
@@ -91,6 +91,7 @@
         <label for="" id="capacidades_especiales"></label>
         <label for="" id="capacidades_especiales"></label>
         <label for="" id="caracteristicas"></label>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
     <div id="div">
 
