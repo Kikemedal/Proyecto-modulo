@@ -30,8 +30,7 @@ Route::get('/formularioNombre', 'App\Http\Controllers\FormulariosController@form
 Auth::routes();
 
 //rutas hechas por Ian
-Route::get('/form1', "App\Http\Controllers\CreadorController@form1")->name("creacion-pj.form1");
-Route::get('/form2', "App\Http\Controllers\CreadorController@form2")->name("creacion-pj.form2");
-Route::get('/personajes', "App\Http\Controllers\PersonajesController@index")->name("personajes.index");
+Route::get('/Formulario_razas', "App\Http\Controllers\FormulariosController@formularioNombre")->name("Formulario_razas");
+Route::get('/Formulario_clases', "App\Http\Controllers\FormulariosController@formularioClases")->name("Formulario_clases");
 
 

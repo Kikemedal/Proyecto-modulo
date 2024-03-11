@@ -43,7 +43,7 @@
                 <div class="overlay-text">Personajes</div>
                 <img src="{{ asset ('/img/marte.png') }}">
             </a> 
-            <a href="/ruta-creacion" class="btn btn-lg m-3 centered-link transparente zoom-image">
+            <a href="{{ route('Formulario_razas') }}" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Crear personaje</div>
                 <img src="{{ asset ('/img/tierra.png') }}">
             </a>
