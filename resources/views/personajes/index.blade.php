@@ -27,13 +27,22 @@
     <header class="masthead headerbackground text-white text-center py-4">
         <div class="container d-flex align-items-center flex-column textoh2">
             <h2>Comienza la aventura</h2>
+            
         </div>
     </header>
 
     <!--Cuerpo con los enlaces -->
     <div class="div">
         <div class=" justify-content-center align-items-center" id="big-div">
-            
+            @foreach ($viewData['personajes'] as $personajes)
+                <a href="{{ route('personajes.eliminar', ['id'=> $personajes['id']])}}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Eliminar
+                </a>
+            @endforeach
         </div>
         <br>
     </div>

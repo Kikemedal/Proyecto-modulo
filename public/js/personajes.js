@@ -65,6 +65,8 @@ function cargar_personajes(personajes){
       // Agregar el wrapper2 al nuevo div
       nuevoDiv.appendChild(wrapper2);
 
+      // Agregar el botón al wrapper2
+
       const contenedorEspecifico = document.getElementById('big-div');
 
       contenedorEspecifico.appendChild(nuevoDiv);// Puedes cambiar esto según tu estructura HTML
