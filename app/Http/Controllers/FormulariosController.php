@@ -25,7 +25,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 1.75,
+                    'edad' =>110
                 ]
                 ],
             'Jawa' => [
@@ -43,7 +45,9 @@ class FormulariosController extends Controller
                     'intelecto' => 3,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 1
+                    'presencia' => 1,
+                    'altura media' => 1.0,
+                    'edad' =>70
                 ]
                 ],
             'Arkaniano' => [
@@ -61,7 +65,9 @@ class FormulariosController extends Controller
                     'intelecto' => 3,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 1
+                    'presencia' => 1,
+                    'altura media' => 1.8,
+                    'edad' =>90
                 ]
                 ],
             'Herglic' => [
@@ -77,7 +83,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 1,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 1.9,
+                    'edad' =>90
                 ]
                 ],
             'Nautolan' => [
@@ -96,7 +104,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 1.8,
+                    'edad' =>70
                 ]
                 ],
             'Wookiee' => [
@@ -114,7 +124,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 2.2,
+                    'edad' =>400
                 ]
             ]
             ];
