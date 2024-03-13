@@ -32,7 +32,7 @@
 
   <!-- header -->
 
-  <header class="masthead bg-primary text-white text-center py-4">
+  <header class="masthead headerbackground text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
       <h2>@yield('subtitle', 'Esto sera modificado por cada formulario')</h2>
     </div>

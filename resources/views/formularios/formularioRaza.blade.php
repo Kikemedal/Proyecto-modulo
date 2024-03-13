@@ -145,9 +145,10 @@
 </script>
 
 <!-- Hay que hacer que de este html un formulario y que se envie al proximo controlador del proximo formulario -->
+<br>
 <div class="flex row w-100 ml-2" style="max-width:1200px;">
   <div class="column w-65 p-1">
-    <h2 class="play-once">Personaje</h2>
+    <h3 class="play-once">Personaje</h3>
     <div class="row w-100">
       <div class="field w-59">
         <label class="glow text">Nombre</label>
@@ -159,20 +160,20 @@
         </select>
       </div>
     </div>
-    <h2>Habilidades</h2>
+    <h3>Habilidades</h3>
     <div class="yellow mb-1">
       <div id="divResultado" class="flex row w-100 justify-space-between">
         <!-- Aqui se encuentra lo que introducimos con javascript -->
       </div>
     </div>
-    <h2> Sigue complentando tu personaje </h2>
+    <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
       <button class="green">Siguiente</button>
       <button class="red">Resetear</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">
-    <h2>Características</h2>
+    <h3>Características</h3>
     <div class="flex column mb-1 hoverable">
       <div class="glow text flex row">
         <strong id="resumenNombre">

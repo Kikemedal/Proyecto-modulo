@@ -7,6 +7,7 @@ header, .container {
     z-index: 1;
 }
 
+
 canvas {
     position: absolute;
     z-index: 0;
@@ -14,4 +15,13 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+
+h2{
+    font-family: 'Star Wars', sans-serif;
+}
+
+.headerbackground{
+    background-color: #252850;
 }
