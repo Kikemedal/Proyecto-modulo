@@ -28,6 +28,7 @@ Route::get('/formularioDemografico', 'App\Http\Controllers\FormulariosController
 Route::get('/formularioMotivacionsEnviar', 'App\Http\Controllers\FormulariosController@formularioDemograficoEnviar' ) -> name('formularioDemograficoEnviar');
 Route::post('/formularioPersonaje1', 'App\Http\Controllers\FormulariosController@formularioMotivacionEnviar' ) -> name('formularioMotivacionEnviar');
 Route::get('/formularioPersonaje', 'App\Http\Controllers\PersonajesController@formulario' ) -> name('formularioPersonaje');
+Route::get('/eliminarPersonaje{id}', 'App\Http\Controllers\PersonajesController@eliminar' ) -> name('personajes.eliminar');
 
 
 Auth::routes();

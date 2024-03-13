@@ -21,7 +21,7 @@ class PersonajesController extends Controller
         return view('personajes.index')->with("viewData", $viewData);
     }
 
-    public function eliminar_personaje($id){
+    public function eliminar($id){
         Character::destroy($id);
         $viewData = [];
         if (Auth::check()) {

@@ -14,14 +14,14 @@ body {
   background: var(--bg);
 }
 
-a {
-  z-index: 3;
+a.boton_eliminar {
   position: relative;
   display: inline-block;
-  padding: 26px 30px;
-  margin: 36px 0;
+  padding: 30px 30px;
+  margin: 35px 0;
+    left: 1vmin;
   color: var(--neon-red);
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
