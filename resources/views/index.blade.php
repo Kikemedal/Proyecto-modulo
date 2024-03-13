@@ -39,7 +39,7 @@
     <!--Cuerpo con los enlaces -->
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="text-center">
-            <a href="/ruta-listado" class="btn btn-lg m-3 centered-link transparente zoom-image">
+            <a href="{{ route('personajes.index') }}" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Personajes</div>
                 <img src="{{ asset ('/img/marte.png') }}">
             </a> 

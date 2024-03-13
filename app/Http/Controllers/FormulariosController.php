@@ -220,9 +220,6 @@ class FormulariosController extends Controller
         $formulario_data['personaje']['motivacion2'] = $motivacion2;
         $formulario_data['personaje']['img'] = $pic_name;
         $Request->session()->put('formulario_data', $formulario_data);
-        if (Auth::check()) {
-            $userId = Auth::id();
-        }
         echo '<script>';
             echo 'alert('.$formulario_data['personaje']['genero'].');';
             echo '</script>';

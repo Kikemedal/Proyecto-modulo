@@ -16,7 +16,7 @@ class PersonajesController extends Controller
             $viewData['personajes'] = character::all();
             return view('personajes.index')->with("viewData", $viewData);
         } else {
-            return view ('login');
+            return view ('auth.login');
         }
        
     }
