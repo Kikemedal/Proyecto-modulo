@@ -11,187 +11,178 @@
 <!--Contenido de formulario -->
 
 <script>
-    function select_especies(){
-        let especies = @json($viewData['especies']);
-        let nombres_especies = Object.keys(especies);
-        let select = document.getElementById("especies");
-        select.innerHTML = "";
 
-        nombres_especies.forEach(function(especie){
-            let option = document.createElement("option");
-            option.value = especie;
-            option.text = especie;
+  //Esta funcion añade las epecies al select
+  function select_especies(){
+    let especies = @json($viewData['especies']);
+    let nombres_especies = Object.keys(especies);
+    let select = document.getElementById("especies");
+    select.innerHTML = "";
 
-            select.appendChild(option);
-        });
-    }
-
-    function mostrar_datos(especie){
-        let especies = @json($viewData['especies']);
-        let especie_datos = especies[especie];
-        let nombres_dato = Object.keys(especie_datos);
-        let contador = 0;
-
-        let div = document.getElementById('div');
-        div.innerHTML = '';
-
-        nombres_dato.forEach(function(dato){
-            contador = contador +1;
-            if (contador<=3) {
-                let label_dato = document.getElementById(dato);
-                label_dato.textContent = especie_datos[dato];
-            } 
-            else {
-                let datos_array = especie_datos[dato];
-                let nombre_datos_array = Object.keys(datos_array);
-                nombre_datos_array.forEach(function(dato_array){
-                    let nuevoLabel = document.createElement("label");
-                    nuevoLabel.textContent = dato_array + ": ";
-                    nuevoLabel.id = dato_array;
-                    let div = document.getElementById('div');
-                    div.appendChild(nuevoLabel);
-                    let nuevoLabel2 = document.createElement("label");
-                    nuevoLabel2.textContent = datos_array[dato_array];
-                    nuevoLabel2.id = dato_array;
-                    div.appendChild(nuevoLabel2);
-                    let saltoDeLinea = document.createElement("br");
-                    div.appendChild(saltoDeLinea);
-                })
-
-            }
-            
-        });
-    }
-
-    function cambiar_datos(){
-        let select = document.getElementById("especies");
-        let especie = select.options[select.selectedIndex].value;
-        mostrar_datos(especie);
-        };
-
-    document.addEventListener("DOMContentLoaded", function() {
-        let prueba = document.getElementById("umbral_herida").value;
-        if (prueba != ""){
-            select_especies();
-            cambiar_datos();
-        }
-        var cambio = document.getElementById('especies');
-        cambio.addEventListener('change', function() { cambiar_datos() }, false);
+    //Recorre el array de nombres y los añade a las opciones del select.
+    nombres_especies.forEach(function(especie)
+    {      
+      let option = document.createElement("option");
+      option.value = especie;
+      option.textContent = especie;
+      select.appendChild(option);
     });
+  }
+
+  //Esta funcion modifica los divs de habilidades segun la especie seleccionada
+  function modificarDivs(){
+    let divResultado = document.getElementById("divResultado");
+    //limpiamos el div de habilidades
+    while (divResultado.firstChild) {
+      divResultado.removeChild(divResultado.firstChild);
+    }
+    //Primero obtenemos los datos que vamos a usar
+    let select = document.getElementById("especies");
+    let especies = @json($viewData['especies']);
+    let nombres_especies = Object.keys(especies);
+    //comprobamos los datos que se seleccionan por parte del usuario.
+    //creamos div e inputs para añadirlos al DOM.
+    for (let i=0; i<nombres_especies.length; i++){
+      if(select.value == nombres_especies[i]){
+        let caracteristicas = especies[select.value].caracteristicas;
+        //Recorrer para clave valor
+        for(let clave in caracteristicas){
+          let div = document.createElement("div");
+          div.className = "field w-24";
+          let label = document.createElement("label");
+          label.className = "glow text";
+          label.textContent = clave.toUpperCase();
+          if(clave == "altura media"){
+            label.textContent += " (m)";
+          }else if(clave == "edad"){
+            label.textContent += " (años)";
+          }
+          let input = document.createElement("input");
+          input.type = "number";
+          input.value = caracteristicas[clave];
+          input.readOnly = true;
+
+          //Añadimos los elementos al div
+          divResultado.appendChild(div);
+          div.appendChild(label);
+          div.appendChild(input);
+        }
+      }
+    }
+    caracteristicasExtras();
+  }
+
+  //Esta función se encargará de mostrar las características extras del personaje.
+  function caracteristicasExtras(){
+    //Muestra la raza a la derecha
+    let select = document.getElementById("especies");
+    let resumenEspecie = document.getElementById("resumenEspecie");
+    resumenEspecie.textContent =  "Raza: " + select.value;
+
+    //Muestra nombre a la derecha
+    let Nombre = document.getElementById("Nombre");
+    let resumenNombre = document.getElementById("resumenNombre");
+    resumenNombre.textContent = "Nombre: " + Nombre.value;
+    Nombre.addEventListener("input", function(){
+      resumenNombre.textContent = "Nombre: " + Nombre.value;
+    });
+
+    let especies = @json($viewData['especies']);
+    let nombres_especies = Object.keys(especies);
+    let extras = document.getElementById("extras");
+
+    //Hay que eliminar los hijos del div para que no se acumulen
+    while (extras.firstChild) {
+      extras.removeChild(extras.firstChild);
+    }
+    for (let i=0; i<nombres_especies.length; i++){
+      if(select.value == nombres_especies[i]){
+        //Array de las capacidades especiales
+        let capacidades_especiales = especies[select.value].capacidades_especiales;
+        //Creamos los parrafos 
+        let parrafoUmbralHerida = document.createElement("p");
+        let parrafoUmbralTension = document.createElement("p");
+        let parrafoExperienciaInicial = document.createElement("p");
+        //añadimos los id a los parrafos
+        parrafoUmbralHerida.id = "umbral_herida";
+        parrafoUmbralTension.id = "umbral_tension";
+        parrafoExperienciaInicial.id ="exp_inicial";
+        //Añadimos el texto a los parrafos
+        parrafoUmbralHerida.textContent = "Umbral de herida: " + especies[select.value]['umbral_herida'];
+        parrafoUmbralTension.textContent = "Umbral de tensión: " + especies[select.value]["umbral_tension"];
+        parrafoExperienciaInicial.textContent = "Experiencia inicial: " + especies[select.value]["exp_inicial"];
+        //Añadimos los parrafos al div
+        extras.appendChild(parrafoUmbralHerida);
+        extras.appendChild(parrafoUmbralTension);
+        extras.appendChild(parrafoExperienciaInicial);
+        let contador = 0;
+        for(let clave in capacidades_especiales){
+          let parrafo = document.createElement("p");
+          parrafo.textContent = clave + ": " + capacidades_especiales[clave];
+          parrafo.id = "cap_especiales" + contador;
+          extras.appendChild(parrafo);
+          contador ++;
+        }
+      }
+    }
+  }
+
+
+  //Evento que hace que se ejecute lo de dentro una vez carga solo el html.
+  //Es decir, este evento no espera a que se cargen las demas hojas de estilos
+  //ni los demás scripts.
+  document.addEventListener('DOMContentLoaded', function(){
+    select_especies();
+    modificarDivs();
+    //añadir un evento al select, para que cuando cambie se ejecute la funcion que
+    //escribe en los select.
+    document.getElementById("especies").addEventListener("change", modificarDivs);
     
+  })
+
+
+  
 </script>
 
+<!-- Hay que hacer que de este html un formulario y que se envie al proximo controlador del proximo formulario -->
 <div class="flex row w-100 ml-2" style="max-width:1200px;">
   <div class="column w-65 p-1">
     <h2 class="play-once">Personaje</h2>
     <div class="row w-100">
       <div class="field w-59">
         <label class="glow text">Nombre</label>
-        <input type="text" pattern="\w+" />
+        <input id="Nombre" type="text" pattern="\w+" />
       </div>
       <div class="field w-39">
         <label class="glow text">Raza</label>
         <select name="especies" id="especies">
-            @for
         </select>
       </div>
     </div>
     <h2>Habilidades</h2>
     <div class="yellow mb-1">
-      <div class="flex row w-100 justify-space-between">
-        <div class="field w-24">
-          <label class="glow text">BOD</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">AGI</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">REA</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">STR</label>
-          <input type="number" />
-        </div>
-      </div>
-      <div class="flex row w-100 justify-space-between">
-        <div class="field w-24">
-          <label class="glow text">WIL</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">LOG</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">INT</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">CHA</label>
-          <input type="number" />
-        </div>
-      </div>
-      <div class="flex row w-100 justify-space-between">
-        <div class="field w-24">
-          <label class="glow text">EDG</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">ESS</label>
-          <input type="number" />
-        </div>
-        <div class="field w-24">
-          <label class="glow text">MAG/RES</label>
-          <input type="number" />
-        </div>
-        <div class="w-24"></div>
+      <div id="divResultado" class="flex row w-100 justify-space-between">
+        <!-- Aqui se encuentra lo que introducimos con javascript -->
       </div>
     </div>
-    <h2> Elige la profesión </h2>
+    <h2> Sigue complentando tu personaje </h2>
     <div class="flex row mt-1">
       <button class="green">Siguiente</button>
       <button class="red">Resetear</button>
     </div>
   </div>
-  
-
-
   <div class="flex column w-32 p-1">
     <h2>Características</h2>
     <div class="flex column mb-1 hoverable">
-      <div class="glow text flex row justify-space-between">
-        <strong>
-          Ares Predator II
+      <div class="glow text flex row">
+        <strong id="resumenNombre">
         </strong>
-        <strong>
-          ¥800
+        <strong id="resumenEspecie">
         </strong>
       </div>
       <div class="glow flex column p-1 pb-2">
-        <div class="flex row justify-space-between flex-wrap">
-          <div class="flex column">
-            <strong>DV</strong>
-            <span class="glow text">12</span>
-          </div>
-          <div class="flex column px-1">
-            <strong>MODES</strong>
-            <span class="glow text">SA/BF</span>
-          </div>
-          <div class="flex column px-1">
-            <strong>AR</strong>
-            <span class="glow text">9/9/7/-/-</span>
-          </div>
-          <div class="flex column px-1">
-            <strong>AMMO</strong>
-            <span class="glow text">15(c)</span>
-          </div>
-          <div class="flex column px-1">
-            <strong>AVAIL</strong>
-            <span class="glow text">2(L)</span>
-          </div>
+        <div id ="extras" class="flex row justify-space-between flex-wrap">
+          <!-- Aqui introducimos las caracteristicas extras con javascript -->
         </div>
       </div>
     </div>
