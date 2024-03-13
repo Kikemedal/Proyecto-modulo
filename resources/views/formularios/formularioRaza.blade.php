@@ -146,13 +146,14 @@
 
 <!-- Hay que hacer que de este html un formulario y que se envie al proximo controlador del proximo formulario -->
 <br>
+<form style="margin-top:150px" action="{{route('formularioNombreEnviar')}}" method="get" >
 <div class="flex row w-100 ml-2" style="max-width:1200px;">
   <div class="column w-65 p-1">
     <h3 class="play-once">Personaje</h3>
     <div class="row w-100">
       <div class="field w-59">
         <label class="glow text">Nombre</label>
-        <input id="Nombre" type="text" pattern="\w+" />
+        <input name="Nombre" id="Nombre" type="text" pattern="\w+" />
       </div>
       <div class="field w-39">
         <label class="glow text">Raza</label>
@@ -168,8 +169,7 @@
     </div>
     <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
-      <button class="green">Siguiente</button>
-      <button class="red">Resetear</button>
+      <button type="submit" class="green">Siguiente</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">
@@ -188,5 +188,6 @@
       </div>
     </div>
 </div>
+</form>
 
 @endsection

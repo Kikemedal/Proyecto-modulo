@@ -11,7 +11,7 @@
     <!-- CSS personalizado -->
     <link href="{{ asset('/css/espacio.css') }}" rel="stylesheet" />
     <link href="{{ asset('/css/personajes_index.css') }}" rel="stylesheet" />
-    <title>Comienza la aventura</title>
+    <title>Personajes</title>
 </head>
 <body class="wrapper">
     <canvas></canvas>
@@ -19,7 +19,7 @@
 
     <header class="masthead headerbackground text-white text-center py-4">
         <div class="container d-flex align-items-center flex-column textoh2">
-            <h2>Comienza la aventura</h2>
+            <h2>Echale un vistazo a tus personajes</h2>
             
         </div>
     </header>
@@ -31,7 +31,8 @@
                 <div class="contenido">
                     <div class="wrapper2" id='{{$personaje['id']}}' onclick="imagen_efect({{$personaje['id']}})">
                         <div class="image-wrapper">
-                            <img class="imagen_personaje" src='img/{{$personaje['img']}}' alt="" id="imagen_{{$personaje['id']}}">
+                            <?php $imagen = $personaje['img']; ?>
+                            <img class="imagen_personaje" src="{{asset('storage/img/' . $imagen)}}" alt="imagen del personaje" id="imagen_{{$personaje['id']}}">
                         </div>
                         <div class="header-wrapper" id="headerWrapper_{{$personaje['id']}}">
                             <h2 class="nombre">{{$personaje['name']}}</h2>

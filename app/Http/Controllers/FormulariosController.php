@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\character;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormulariosController extends Controller
 {
@@ -140,9 +141,9 @@ class FormulariosController extends Controller
     
 
     public function formularioNombreEnviar(Request $Request){
-            $nombre = $Request->input('nombre');
+            $nombre = $Request->input('Nombre');
             $especie = $Request->input('especies');
-            $Request->session()->put('formulario_data', ['personaje' => ['nombre' => $nombre, 'especie' => $especie]]);
+            $Request->session()->put('formulario_data', ['personaje' => ['Nombre' => $nombre, 'especie' => $especie]]);
             $profesiones = [
                 'Cazarrecompensas' => [
                     'talentos' => ['asesino', 'tecnificado', 'supervivencia']
@@ -195,17 +196,25 @@ class FormulariosController extends Controller
     }
 
     public function FormularioMotivacionEnviar(Request $Request){
-        $Request->file("imagen")->extension();
+
+        //Subida de imagenes:
         $imagen = $Request->file("imagen");
-        $pic_name = time().'.'.$imagen->extension();
-        $path = $imagen->storeAs('public', $pic_name);
+        $imageName = $imagen->getClientOriginalName();
+
+        //se guarda la imagen subida en storage/app/public/img
+        Storage::disk('public')->put(  
+            "img/" . $imageName,  
+            file_get_contents($Request->file('imagen')->getRealPath())  
+        );
+
+
 
         $motivacion1 = $Request->input('motivacion1');
         $motivacion2 = $Request->input('motivacion2');
         $formulario_data = $Request->session()->get('formulario_data', []);
         $formulario_data['personaje']['motivacion1'] = $motivacion1;
         $formulario_data['personaje']['motivacion2'] = $motivacion2;
-        $formulario_data['personaje']['img'] = $pic_name;
+        $formulario_data['personaje']['img'] = $imageName;
         $Request->session()->put('formulario_data', $formulario_data);
         if (Auth::check()) {
             $userId = Auth::id();
@@ -214,7 +223,7 @@ class FormulariosController extends Controller
         }
         $personaje = new character();
         $personaje->user_id = $userId;
-        $personaje->name = $formulario_data['personaje']['nombre'];
+        $personaje->name = $formulario_data['personaje']['Nombre'];
         $personaje->species = $formulario_data['personaje']['especie'];
         $personaje->profesion = $formulario_data['personaje']['profesion'];
         $personaje->talent = $formulario_data['personaje']['talento'];
@@ -226,9 +235,17 @@ class FormulariosController extends Controller
         $personaje->extra_charact = $formulario_data['personaje']['caract_extra'];
         $personaje->motivation1 = $motivacion1;
         $personaje->motivation2 = $motivacion2;
-        $personaje->img = $pic_name;
+        $personaje->img = $imageName;
         $personaje->save();
-        return view('formularioPersonaje');
+        $vieData = [];
+        redirect()->action('App\Http\Controllers\PersonajesController@index');
+        
+        /*
+        $id = Auth::id();
+        $viewData['personajes'] = character::where('user_id', $id)->get();
+        return view('personajes.index')->with("viewData", $viewData);
+        */
+        
     }   
 
 

@@ -22,22 +22,17 @@ Route::get('/', function () {
 
 
 //Rutas formulario
-
-
-Route::get('/formularioNombre', 'App\Http\Controllers\FormulariosController@formularioNombre' ) -> name('formularioNombre');
+Route::get('/Formulario_razas', "App\Http\Controllers\FormulariosController@formularioNombre")->name("Formulario_razas");
 Route::get('/formularioClases', 'App\Http\Controllers\FormulariosController@formularioNombreEnviar' ) -> name('formularioNombreEnviar');
 Route::get('/formularioDemografico', 'App\Http\Controllers\FormulariosController@formularioClasesEnviar' ) -> name('formularioClasesEnviar');
 Route::get('/formularioMotivacionsEnviar', 'App\Http\Controllers\FormulariosController@formularioDemograficoEnviar' ) -> name('formularioDemograficoEnviar');
 Route::post('/formularioPersonaje1', 'App\Http\Controllers\FormulariosController@formularioMotivacionEnviar' ) -> name('formularioMotivacionEnviar');
-Route::get('/formularioPersonaje', 'App\Http\Controllers\PersonajesController@formulario' ) -> name('formularioPersonaje');
 Route::get('/formularioPersonaje{id}', 'App\Http\Controllers\PersonajesController@eliminar' ) -> name('personajes.eliminar');
 
 
 
 Auth::routes();
 
-//rutas hechas por Ian
+//Rutas de personajes
 
-Route::get('/Formulario_razas', "App\Http\Controllers\FormulariosController@formularioNombre")->name("Formulario_razas");
-Route::get('/Formulario_clases', "App\Http\Controllers\FormulariosController@formularioClases")->name("Formulario_clases");
 Route::get('/personajes', "App\Http\Controllers\PersonajesController@index")->name("personajes.index");
