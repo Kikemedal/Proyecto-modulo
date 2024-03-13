@@ -129,20 +129,19 @@ class FormulariosController extends Controller
                 ]
             ]
         ];
-
-    $viewData = [];
-    $viewData["especies"] = $especies;
-    return view('formularios.formularioRaza')->with("viewData", $viewData);
+        if (Auth::check()) {
+            $viewData = [];
+            $viewData["especies"] = $especies;
+            return view('formularios.formularioRaza')->with("viewData", $viewData);
+        } else {
+            return view ('auth.login');
+        }
     }
     
 
     public function formularioNombreEnviar(Request $Request){
             $nombre = $Request->input('nombre');
             $especie = $Request->input('especies');
-            echo '<script>';
-            echo 'alert('.$nombre.');';
-            echo 'alert('.$especie.');';
-            echo '</script>';
             $Request->session()->put('formulario_data', ['personaje' => ['nombre' => $nombre, 'especie' => $especie]]);
             $profesiones = [
                 'Cazarrecompensas' => [
@@ -170,10 +169,6 @@ class FormulariosController extends Controller
     public function FormularioClasesEnviar(Request $Request){
             $profesion = $Request->input('profesiones');
             $talento = $Request->input('talentos');
-            echo '<script>';
-            echo 'alert('.$profesion.');';
-            echo 'alert('.$talento.');';
-            echo '</script>';
             $formulario_data = $Request->session()->get('formulario_data');
             $formulario_data['personaje']['profesion'] = $profesion;
             $formulario_data['personaje']['talento'] = $talento;
@@ -184,10 +179,6 @@ class FormulariosController extends Controller
     public function FormularioDemograficoEnviar(Request $Request){
         $genero = $Request->input('genero');
         $edad = $Request->input('edad');
-        echo '<script>';
-            echo 'alert('.$edad.');';
-            echo 'alert('.$genero.');';
-            echo '</script>';
         $altura = $Request->input('altura');
         $tipo_cuerpo = $Request->input('tipo_cuerpo');
         $ojos = $Request->input('ojos');
@@ -195,10 +186,6 @@ class FormulariosController extends Controller
         $formulario_data = $Request->session()->get('formulario_data', []);
         $formulario_data['personaje']['genero'] = $genero;
         $formulario_data['personaje']['edad'] = $edad;
-        echo '<script>';
-            echo 'alert('.$formulario_data['personaje']['edad'].');';
-            echo 'alert('.$formulario_data['personaje']['genero'].');';
-            echo '</script>';
         $formulario_data['personaje']['altura'] = $altura;
         $formulario_data['personaje']['tipo_cuerpo'] = $tipo_cuerpo;
         $formulario_data['personaje']['ojos'] = $ojos;
@@ -220,9 +207,11 @@ class FormulariosController extends Controller
         $formulario_data['personaje']['motivacion2'] = $motivacion2;
         $formulario_data['personaje']['img'] = $pic_name;
         $Request->session()->put('formulario_data', $formulario_data);
-        echo '<script>';
-            echo 'alert('.$formulario_data['personaje']['genero'].');';
-            echo '</script>';
+        if (Auth::check()) {
+            $userId = Auth::id();
+        } else {
+            return view ('login');
+        }
         $personaje = new character();
         $personaje->user_id = $userId;
         $personaje->name = $formulario_data['personaje']['nombre'];
