@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\character;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PersonajesController extends Controller
 {
@@ -11,8 +12,13 @@ class PersonajesController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Admin Page - Products - Online Store";
-        $viewData['personajes'] = character::all();
-        return view('personajes.index')->with("viewData", $viewData);
+        if (Auth::check()) {
+            $viewData['personajes'] = character::all();
+            return view('personajes.index')->with("viewData", $viewData);
+        } else {
+            return view ('login');
+        }
+       
     }
 
     public function mostarPersonaje($id){
