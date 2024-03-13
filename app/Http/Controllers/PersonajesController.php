@@ -8,23 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class PersonajesController extends Controller
 {
-    public function index()
+    public function index($id)
     {
         $viewData = [];
         $viewData["title"] = "Admin Page - Products - Online Store";
         if (Auth::check()) {
-            $viewData['personajes'] = character::all();
+            $viewData['personajes'] = Character::where('user_id', $id)->get();
             return view('personajes.index')->with("viewData", $viewData);
         } else {
             return view ('auth.login');
         }
        
-    }
-
-    public function mostarPersonaje($id){
-        $viewData = [];
-        $viewData["title"] = "Admin Page - Products - Online Store";
-        $viewData['personaje'] = character::find($id);
-        return view('personajes.mostrar')->with("viewData", $viewData);
     }
 }
