@@ -228,7 +228,7 @@ class FormulariosController extends Controller
         $personaje->motivation2 = $motivacion2;
         $personaje->img = $pic_name;
         $personaje->save();
-        return view('formularioPersonaje');
+        return view('personajes.index');
     }   
 
 
