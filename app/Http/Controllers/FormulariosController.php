@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\character;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
 
 class FormulariosController extends Controller
@@ -25,7 +24,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 1.75,
+                    'edad' =>110
                 ]
                 ],
             'Jawa' => [
@@ -43,7 +44,9 @@ class FormulariosController extends Controller
                     'intelecto' => 3,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 1
+                    'presencia' => 1,
+                    'altura media' => 1.0,
+                    'edad' =>70
                 ]
                 ],
             'Arkaniano' => [
@@ -61,7 +64,9 @@ class FormulariosController extends Controller
                     'intelecto' => 3,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 1
+                    'presencia' => 1,
+                    'altura media' => 1.8,
+                    'edad' =>90
                 ]
                 ],
             'Herglic' => [
@@ -77,7 +82,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 1,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 1.9,
+                    'edad' =>90
                 ]
                 ],
             'Nautolan' => [
@@ -96,7 +103,9 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 1.8,
+                    'edad' =>70
                 ]
                 ],
             'Wookiee' => [
@@ -114,13 +123,16 @@ class FormulariosController extends Controller
                     'intelecto' => 2,
                     'astucia' => 2,
                     'voluntad' => 2,
-                    'presencia' => 2
+                    'presencia' => 2,
+                    'altura media' => 2.2,
+                    'edad' =>400
                 ]
             ]
-            ];
-        $viewData = [];
-        $viewData['especies'] = $especies;
-        return view('formularios.formularioName')->with('viewData', $viewData);
+        ];
+
+    $viewData = [];
+    $viewData["especies"] = $especies;
+    return view('formularios.formularioRaza')->with("viewData", $viewData);
     }
     
 
@@ -150,9 +162,9 @@ class FormulariosController extends Controller
                 ]
             ];
     
-            $viewData = [];
-            $viewData["profesiones"] = $profesiones;
-            return view('formularios.formularioClases')->with('viewData', $viewData);
+        $viewData = [];
+        $viewData["profesiones"] = $profesiones;
+        return view('formularios.formularioClases')->with('viewData', $viewData);
     }
 
     public function FormularioClasesEnviar(Request $Request){
@@ -193,7 +205,7 @@ class FormulariosController extends Controller
         $formulario_data['personaje']['caract_extra'] = $caract_extra;
         $Request->session()->put('formulario_data', $formulario_data);
         return view('formularios.FormularioMotivacion');
-}
+    }
 
     public function FormularioMotivacionEnviar(Request $Request){
         $Request->file("imagen")->extension();
@@ -230,12 +242,9 @@ class FormulariosController extends Controller
         $personaje->motivation2 = $motivacion2;
         $personaje->img = $pic_name;
         $personaje->save();
-    return view('formularioPersonaje');
-}
+        return view('formularioPersonaje');
+    }   
 
 
 
-    public function mostarPersonaje($id){
-        
-    }
 }

@@ -16,6 +16,9 @@
 
   <link href="{{ asset('/css/formulario.css') }}" rel="stylesheet" /> 
 
+  <!-- Css de cada formulario -->
+  @yield('css')
+
   <!-- Marcador donde incluiremos el título de la página -->
   
   <title>@yield('title', 'Plantilla de formularios')</title>   
@@ -29,7 +32,7 @@
 
   <!-- header -->
 
-  <header class="masthead bg-primary text-white text-center py-4">
+  <header class="masthead headerbackground text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
       <h2>@yield('subtitle', 'Esto sera modificado por cada formulario')</h2>
     </div>
