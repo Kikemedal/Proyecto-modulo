@@ -27,6 +27,13 @@
             <div class="d-flex align-items-center">
                 <img class="user-icon" src="{{ asset('/img/usuario.png') }}" alt="User Icon">
                 <span class="user-name">{{ Auth::user()->name }}</span>
+                <a class="boton_eliminar" id="boton_eliminar" href="{{route('logout')}}">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    CERRAR SESIÓN
+                  </a>
             </div>
         @else
             <div class="d-flex align-items-center">
@@ -39,10 +46,17 @@
     <!--Cuerpo con los enlaces -->
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="text-center">
-            <a href="{{route('personajes.index', ['id'=> Auth::id()])}}" class="btn btn-lg m-3 centered-link transparente zoom-image">
+            @if (Auth::check())
+                <a href={{ route('personajes.index', ['id' => Auth::user()->id]) }} class="btn btn-lg m-3 centered-link transparente zoom-image">
+                    <div class="overlay-text">Personajes</div>
+                    <img src="{{ asset ('/img/marte.png') }}">
+                </a> 
+            @else
+            <a href={{ route('login')}} class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Personajes</div>
                 <img src="{{ asset ('/img/marte.png') }}">
             </a> 
+            @endif
             <a href="{{ route('Formulario_razas') }}" class="btn btn-lg m-3 centered-link transparente zoom-image">
                 <div class="overlay-text">Crear personaje</div>
                 <img src="{{ asset ('/img/tierra.png') }}">

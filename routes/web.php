@@ -40,3 +40,8 @@ Auth::routes();
 Route::get('/Formulario_razas', "App\Http\Controllers\FormulariosController@formularioNombre")->name("Formulario_razas");
 Route::get('/Formulario_clases', "App\Http\Controllers\FormulariosController@formularioClases")->name("Formulario_clases");
 Route::get('/personajes{id}', "App\Http\Controllers\PersonajesController@index")->name("personajes.index");
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');

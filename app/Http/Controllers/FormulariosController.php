@@ -228,7 +228,10 @@ class FormulariosController extends Controller
         $personaje->motivation2 = $motivacion2;
         $personaje->img = $pic_name;
         $personaje->save();
-        return view('personajes.index');
+        $viewData = [];
+        $id = Auth::id();
+        $viewData['personajes'] = Character::where('user_id', $id)->get();
+        return view('personajes.index')->with("viewData", $viewData);
     }   
 
 
