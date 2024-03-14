@@ -25,35 +25,47 @@ document.addEventListener("DOMContentLoaded",function(){
     motivacion2.addEventListener("input", function(){
         motivacion2_extra.textContent = "--> " + motivacion2.value;
     });
+
+    let menuPrincipal = document.getElementById("menuPrincipal");
+    let atras = document.getElementById("atras");
+
+    menuPrincipal.addEventListener("click", function(){
+        window.location.href = '/';
+    });
+
+    atras.addEventListener("click", function(){
+        window.location.href = '/formularioDemografico';
+    });
 })
 
 </script>
-<form style="margin-top:150px" action="{{route('formularioNombreEnviar')}}" method="get" >
+<form style="margin-top:150px" action="{{route('formularioMotivacionEnviar')}}" method="get" >
 <div class="flex row w-100 ml-2" style="max-width:1200px;">
   <div class="column w-65 p-1">
     <h3 class="play-once">Motivaciones de tu personaje</h3>
     <div class="row w-100">
       <div class="field w-59">
       <label for="motivacion1">Motivacion 1 </label>
-        <input type="text" id="motivacion1" name="motivacion1">
+        <input required type="text" id="motivacion1" name="motivacion1">
       </div>
       <div class="field w-39">
         <label for="">Motivacion 2</label>
-        <input type="text" id="motivacion2" name="motivacion2">
-        </select>
+        <input required type="text" id="motivacion2" name="motivacion2">
       </div>
     </div>
     <h3>Imagen de tu personaje</h3>
     <div class="yellow mb-1">
       <div id="divResultado" class="flex row w-100 justify-space-between">
         <!-- Aqui se encuentra lo que introducimos con javascript -->
-        <label for="">Imagen del personaje</label>
-        <input name="imagen" id="imagen" type="file">
+        <label for="imagen">Imagen del personaje</label>
+        <input required name="imagen" id="imagen" type="file">
       </div>
     </div>
     <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
       <button type="submit" class="green">Siguiente</button>
+      <button type="button" id="atras" class="red">Atrás</button>
+      <button type="button" id="menuPrincipal" class="red">Menu principal</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">

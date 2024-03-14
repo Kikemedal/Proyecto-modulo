@@ -52,6 +52,18 @@ document.addEventListener("DOMContentLoaded",function(){
         extraCaractExtra.textContent = "--> " + caract_extra.value;
     });
 
+    //Botones
+    let menuPrincipal = document.getElementById("menuPrincipal");
+    let atras = document.getElementById("atras");
+
+    menuPrincipal.addEventListener("click", function(){
+        window.location.href = '/';
+    });
+
+    atras.addEventListener("click", function(){
+        window.location.href = '/formularioClases';
+    });
+
 })
 
 
@@ -66,22 +78,24 @@ document.addEventListener("DOMContentLoaded",function(){
       <div id="divResultado" class="flex row w-100 justify-space-between">
         <!-- Aqui se encuentra lo que introducimos con javascript -->
         <label for="genero">Género</label>
-        <input require type="text" id="genero" name="genero">
+        <input required type="text" id="genero" name="genero">
         <label for="edad">Edad</label>
-        <input type="number" id="edad" name="edad">
+        <input required type="number" id="edad" name="edad">
         <label for="altura">Altura</label>
-        <input type="text" id="altura" name="altura">
+        <input required type="text" id="altura" name="altura">
         <label for="tipo_cuerpo">Tipo de cuerpo</label>
-        <input type="text" id="tipo_cuerpo" name="tipo_cuerpo">
+        <input required type="text" id="tipo_cuerpo" name="tipo_cuerpo">
         <label for="ojos">Ojos</label>
-        <input type="text" id="ojos" name="ojos">
+        <input required type="text" id="ojos" name="ojos">
         <label for="caract_extra">Características destacables</label>
-        <input type="text" id="caract_extra" name="caract_extra">
+        <input required type="text" id="caract_extra" name="caract_extra">
       </div>
     </div>
     <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
       <button type="submit" class="green">Siguiente</button>
+      <button type="button" id="atras" class="red">Atrás</button>
+      <button type="button" id="menuPrincipal" class="red">Menu principal</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">
