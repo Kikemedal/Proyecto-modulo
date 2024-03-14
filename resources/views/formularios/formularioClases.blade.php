@@ -1,7 +1,7 @@
 @extends('templates.forms')
-
+ 
 @section('css')
-<link href="{{ asset('/css/formularioClases.css') }}" rel="stylesheet" />
+<link href="{{ asset('/css/formularioClase.css') }}" rel="stylesheet" />
 @endsection
 
 @section('subtitle', 'Elige las calses de tu personaje')
