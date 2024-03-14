@@ -196,7 +196,6 @@ class FormulariosController extends Controller
     }
 
     public function FormularioMotivacionEnviar(Request $Request){
-
         //Subida de imagenes:
         $imagen = $Request->file("imagen");
         $imageName = $imagen->getClientOriginalName();
@@ -206,8 +205,6 @@ class FormulariosController extends Controller
             "img/" . $imageName,  
             file_get_contents($Request->file('imagen')->getRealPath())  
         );
-
-
 
         $motivacion1 = $Request->input('motivacion1');
         $motivacion2 = $Request->input('motivacion2');
@@ -237,7 +234,7 @@ class FormulariosController extends Controller
         $personaje->motivation2 = $motivacion2;
         $personaje->img = $imageName;
         $personaje->save();
-        $vieData = [];
+        $viewData = [];
         //redirect()->action('App\Http\Controllers\PersonajesController@index');
         
         

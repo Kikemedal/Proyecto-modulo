@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded",function(){
 })
 
 </script>
-<form style="margin-top:150px" action="{{route('formularioMotivacionEnviar')}}" method="get" >
+<form style="margin-top:150px" action="{{route('formularioMotivacionEnviar')}}" method="post" enctype="multipart/form-data">
+  @csrf
 <div class="flex row w-100 ml-2" style="max-width:1200px;">
   <div class="column w-65 p-1">
     <h3 class="play-once">Motivaciones de tu personaje</h3>
