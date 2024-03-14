@@ -198,7 +198,8 @@ class FormulariosController extends Controller
     public function FormularioMotivacionEnviar(Request $Request){
         //Subida de imagenes:
         $imagen = $Request->file("imagen");
-        $imageName = $imagen->getClientOriginalName();
+        //$imageName = $imagen->getClientOriginalName();
+        $imageName = time().'.'.$imagen->extension();
 
         //se guarda la imagen subida en storage/app/public/img
         Storage::disk('public')->put(  
