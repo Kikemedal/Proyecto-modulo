@@ -18,7 +18,8 @@ class PersonajesController extends Controller
         }
         $personajes = Character::where('user_id', $userId)->get();
         $viewData['personajes'] = $personajes;
-        return view('personajes.index')->with("viewData", $viewData);
+        $mensaje = $personajes->isEmpty() ? 'No has creado personajes aún' : '';
+        return view('personajes.index', compact('viewData', 'mensaje'));
     }
 
     public function eliminar($id){
@@ -31,6 +32,7 @@ class PersonajesController extends Controller
         }
         $personajes = Character::where('user_id', $userId)->get();
         $viewData['personajes'] = $personajes;
-        return view('personajes.index')->with("viewData", $viewData);
+        $mensaje = $personajes->isEmpty() ? 'No has creado personajes aún' : '';
+        return view('personajes.index', compact('viewData', 'mensaje'));
     }
 }

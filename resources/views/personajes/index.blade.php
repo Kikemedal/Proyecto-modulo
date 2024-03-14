@@ -21,47 +21,53 @@
         <div class="container d-flex align-items-center justify-content-center textoh2">
             <h2>Echale un vistazo a tus personajes</h2>
         </div>
-        <a href="{{route('index')}}" class="text-white position-absolute end-3 me-3">Menu Principal</a>
+        <a class="boton_menu" id="boton_menu" href="{{route('index')}}">
+            Menu Principal
+          </a>
     </header>
     <!--Cuerpo con los enlaces -->
     <div class="div">
         <div class=" justify-content-center align-items-center" id="big-div">
-            @foreach ($viewData['personajes'] as $personajes => $personaje)
-                <div class="contenido">
-                    <div class="wrapper2" id='{{$personaje['id']}}' onclick="imagen_efect({{$personaje['id']}})">
-                        <div class="image-wrapper">
-                            <?php $imagen = $personaje['img']; ?>
-                            <img class="imagen_personaje" src="{{asset('storage/img/' . $imagen)}}" alt="imagen del personaje" id="imagen_{{$personaje['id']}}">
-                        </div>
-                        <div class="header-wrapper" id="headerWrapper_{{$personaje['id']}}">
-                            <h2 class="nombre">{{$personaje['name']}}</h2>
-                            <h3 class="datos" id="datos_{{$personaje['id']}}">
-                                Nombre: {{$personaje['name']}}
-                                <br>Raza: {{$personaje['species']}}
-                                <br>Profesión: {{$personaje['profesion']}}
-                                <br>Talento: {{$personaje['talent']}}
-                                <br>Genero: {{$personaje['gender']}}
-                                <br>Altura: {{$personaje['height']}}
-                                <br>Tipo de cuerpo: {{$personaje['body_type']}}
-                                <br>ojos: {{$personaje['eyes']}}
-                            </h3>
-                            <h3 class="datos2" id="datos2_{{$personaje['id']}}">
-                                <br>Datos extra: {{$personaje['extra_charact']}}
-                                <br>Motivación: {{$personaje['motivation1']}}
-                                <br>Motivación 2: {{$personaje['motivation2']}}
-                                <a class="boton_eliminar" href="{{route('personajes.eliminar', ['id'=> $personaje['id']])}}">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    ELIMINAR
-                                  </a>
-                                  
-                            </h3>
+            @if ($mensaje)
+                <h2 class="mensaje_no_personajes">{{ $mensaje }}</h2>
+            @else
+                @foreach ($viewData['personajes'] as $personajes => $personaje)
+                    <div class="contenido">
+                        <div class="wrapper2" id='{{$personaje['id']}}' onclick="imagen_efect({{$personaje['id']}})">
+                            <div class="image-wrapper">
+                                <?php $imagen = $personaje['img']; ?>
+                                <img class="imagen_personaje" src="{{asset('storage/img/' . $imagen)}}" alt="imagen del personaje" id="imagen_{{$personaje['id']}}">
+                            </div>
+                            <div class="header-wrapper" id="headerWrapper_{{$personaje['id']}}">
+                                <h2 class="nombre">{{$personaje['name']}}</h2>
+                                <h3 class="datos" id="datos_{{$personaje['id']}}">
+                                    Nombre: {{$personaje['name']}}
+                                    <br>Raza: {{$personaje['species']}}
+                                    <br>Profesión: {{$personaje['profesion']}}
+                                    <br>Talento: {{$personaje['talent']}}
+                                    <br>Genero: {{$personaje['gender']}}
+                                    <br>Altura: {{$personaje['height']}}
+                                    <br>Tipo de cuerpo: {{$personaje['body_type']}}
+                                    <br>ojos: {{$personaje['eyes']}}
+                                </h3>
+                                <h3 class="datos2" id="datos2_{{$personaje['id']}}">
+                                    <br>Datos extra: {{$personaje['extra_charact']}}
+                                    <br>Motivación: {{$personaje['motivation1']}}
+                                    <br>Motivación 2: {{$personaje['motivation2']}}
+                                    <a class="boton_eliminar" href="{{route('personajes.eliminar', ['id'=> $personaje['id']])}}">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        ELIMINAR
+                                    </a>
+                                    
+                                </h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
         <br>
     </div>

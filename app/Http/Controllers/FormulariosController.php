@@ -6,6 +6,8 @@ use App\Models\character;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\PersonajesController;
 
 class FormulariosController extends Controller
 {
@@ -238,10 +240,13 @@ class FormulariosController extends Controller
         $viewData = [];
         //redirect()->action('App\Http\Controllers\PersonajesController@index');
         
-        
+        //return app(PersonajesController::class)->index();
+
         $id = Auth::id();
-        $viewData['personajes'] = character::where('user_id', $id)->get();
-        return view('personajes.index')->with("viewData", $viewData);
+        $personajes = Character::where('user_id', $userId)->get();
+        $viewData['personajes'] = $personajes;
+        $mensaje = $personajes->isEmpty() ? 'No has creado personajes aún' : '';
+        return view('personajes.index', compact('viewData', 'mensaje'));
         
         
     }   

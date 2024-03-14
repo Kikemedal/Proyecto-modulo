@@ -20,6 +20,15 @@ button {
   outline: none;
 }
 
+option {
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  color: black;
+  outline: none;
+}
+
 .h-1 {
   height: 1%;
 }

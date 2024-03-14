@@ -1,5 +1,6 @@
 :root {
   --neon-red: #d00000;
+  --neon-blue: #1ae3f5;
   --bg: #050801;
 }
 
@@ -12,6 +13,28 @@
 
 body {
   background: var(--bg);
+}
+
+.boton_menu{
+  display: inline-block;
+  padding: 10px 5px;
+  bottom: 1vmin;
+  right: 1vmin;
+  color: var(--neon-blue);
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003)
+}
+
+.boton_menu:hover {
+  background: var(--neon-blue);
+  color: var(--bg);
+  box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 25px var(--neon-blue), 0 0 75px var(--neon-blue);
+  transition-delay: .4s;
 }
 
 a.boton_eliminar {
@@ -56,7 +79,7 @@ a span:nth-child(1) {
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon-blue));
+  background: linear-gradient(90deg, transparent, var(--neon-red));
 }
 
 a:hover span:nth-child(1) {
@@ -70,7 +93,7 @@ a span:nth-child(2) {
   right: 0;
   height: 100%;
   width: 2px;
-  background: linear-gradient(180deg, transparent, var(--neon-blue));  
+  background: linear-gradient(180deg, transparent, var(--neon-red));  
 }
 
 a:hover span:nth-child(2) {
@@ -85,7 +108,7 @@ a span:nth-child(3) {
   right: -100%;
   height: 2px;
   width: 100%;
-  background: linear-gradient(270deg, transparent, var(--neon-blue));
+  background: linear-gradient(270deg, transparent, var(--neon-red));
 }
 
 a:hover span:nth-child(3) {
@@ -99,7 +122,7 @@ a span:nth-child(4) {
   left: 0;
   height: 100%;
   width: 2px;
-  background: linear-gradient(360deg, transparent, var(--neon-blue));
+  background: linear-gradient(360deg, transparent, var(--neon-red));
 }
 
 a:hover span:nth-child(4) {
@@ -111,6 +134,12 @@ a:hover span:nth-child(4) {
 h2{
     font-family: 'Star Wars', sans-serif;
   }
+
+.mensaje_no_personajes{
+  color: #fff;
+  position: relative;
+  margin-top: 200px;
+}
   
   .headerbackground{
     background-color: #252850;
@@ -247,7 +276,7 @@ h2{
     flex-direction: column;
     position: absolute;
     height: 300px;
-    width: 300px;
+    width: 270px;
     left: 200px;
     transition: all 200ms ease-in-out;
     overflow: hidden;
