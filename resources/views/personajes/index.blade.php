@@ -17,13 +17,12 @@
     <canvas></canvas>
 
 
-    <header class="masthead headerbackground text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column textoh2">
+    <header class="masthead headerbackground text-white text-center py-4 position-relative">
+        <div class="container d-flex align-items-center justify-content-center textoh2">
             <h2>Echale un vistazo a tus personajes</h2>
-            
         </div>
+        <a href="{{route('index')}}" class="text-white position-absolute end-3 me-3">Menu Principal</a>
     </header>
-
     <!--Cuerpo con los enlaces -->
     <div class="div">
         <div class=" justify-content-center align-items-center" id="big-div">

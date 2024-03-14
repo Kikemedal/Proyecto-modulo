@@ -26,16 +26,6 @@ document.addEventListener("DOMContentLoaded",function(){
         motivacion2_extra.textContent = "--> " + motivacion2.value;
     });
 
-    let menuPrincipal = document.getElementById("menuPrincipal");
-    let atras = document.getElementById("atras");
-
-    menuPrincipal.addEventListener("click", function(){
-        window.location.href = '/';
-    });
-
-    atras.addEventListener("click", function(){
-        window.location.href = '/formularioDemografico';
-    });
 })
 
 </script>
@@ -64,8 +54,6 @@ document.addEventListener("DOMContentLoaded",function(){
     <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
       <button type="submit" class="green">Siguiente</button>
-      <button type="button" id="atras" class="red">Atrás</button>
-      <button type="button" id="menuPrincipal" class="red">Menu principal</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">

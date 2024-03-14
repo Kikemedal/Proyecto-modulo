@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('templates.forms')
+
+@section('title', 'Register')
+@section('subtitle', 'Formulario Register')
 
 @section('content')
-<div class="container">
+<div style="margin-top:150px;"class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

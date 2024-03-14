@@ -11,8 +11,7 @@
 <!--Contenido de formulario -->
 
 <script>
-  let nombre = localStorage.getItem('Nombre');
-  let especieGuardada = localStorage.getItem('especies');
+
   //Esta funcion añade las epecies al select
   function select_especies(){
     let especies = @json($viewData['especies']);
@@ -139,21 +138,7 @@
     //añadir un evento al select, para que cuando cambie se ejecute la funcion que
     //escribe en los select.
     document.getElementById("especies").addEventListener("change", modificarDivs);
-    document.getElementById('especies').addEventListener('change', function() {
-      localStorage.setItem('especies', this.value);
-    });
-    document.getElementById('menuPrincipal').addEventListener('click', function() {
-      window.location.href = '/';
-    });
-    if (nombre !== null) {
-      document.getElementById('Nombre').value = nombre;
-      document.getElementById('resumenNombre').textContent = "Nombre: " + nombre;
-    }
-    if (especieGuardada !== null) {
-      document.getElementById('especies').value = especieGuardada;
-      document.getElementById('resumenEspecie').textContent = "Raza: " + especieGuardada;
-      
-    }
+
     
   })
 
@@ -187,7 +172,6 @@
     <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
       <button type="submit" class="green">Siguiente</button>
-      <button type="button" id="menuPrincipal" class="red">Menu principal</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">

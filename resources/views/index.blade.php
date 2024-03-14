@@ -24,9 +24,15 @@
             <h2>Comienza la aventura</h2>
         </div>
         @if (Auth::check())
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-end">
                 <img class="user-icon" src="{{ asset('/img/usuario.png') }}" alt="User Icon">
-                <span class="user-name">{{ Auth::user()->name }}</span>
+                <span class="user-name ms-3">{{ Auth::user()->name }}</span>
+                 <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+                    class="text-white ms-3 mt-3">Cerrar sesión</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
         @else
             <div class="d-flex align-items-center">
@@ -47,10 +53,12 @@
                 <div class="overlay-text">Crear personaje</div>
                 <img src="{{ asset ('/img/tierra.png') }}">
             </a>
-            <a href=  "{{ route('login') }}" class="btn btn-lg m-3 centered-link transparente zoom-image">
-                <div class="overlay-text">Iniciar sesión</div>
-                <img src="{{ asset ('/img/morado.png') }}">
-            </a>
+            @if (!auth()->check())
+                <a href="{{ route('login') }}" class="btn btn-lg m-3 centered-link transparente zoom-image">
+                    <div class="overlay-text">Iniciar sesión</div>
+                    <img src="{{ asset ('/img/morado.png') }}">
+                </a>
+            @endif
         </div>
     </div>
 

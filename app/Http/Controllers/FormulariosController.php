@@ -238,13 +238,13 @@ class FormulariosController extends Controller
         $personaje->img = $imageName;
         $personaje->save();
         $vieData = [];
-        redirect()->action('App\Http\Controllers\PersonajesController@index');
+        //redirect()->action('App\Http\Controllers\PersonajesController@index');
         
-        /*
+        
         $id = Auth::id();
         $viewData['personajes'] = character::where('user_id', $id)->get();
         return view('personajes.index')->with("viewData", $viewData);
-        */
+        
         
     }   
 

@@ -14,7 +14,7 @@ class PersonajesController extends Controller
         if (Auth::check()) {
             $userId = Auth::id();
         } else {
-            return view('/login');
+            return view('auth.login');
         }
         $personajes = Character::where('user_id', $userId)->get();
         $viewData['personajes'] = $personajes;
@@ -27,7 +27,7 @@ class PersonajesController extends Controller
         if (Auth::check()) {
             $userId = Auth::id();
         } else {
-            return view('/login');
+            return view('auth.login');
         }
         $personajes = Character::where('user_id', $userId)->get();
         $viewData['personajes'] = $personajes;

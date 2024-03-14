@@ -52,17 +52,6 @@
         var cambio = document.getElementById('profesiones');
         cambio.addEventListener('change', function() { cambiar_select(cambio) }, false);
 
-        //Botones
-        let menuPrincipal = document.getElementById("menuPrincipal");
-        let atras = document.getElementById("atras");
-
-        menuPrincipal.addEventListener("click", function(){
-            window.location.href = '/';
-        });
-
-        atras.addEventListener("click", function(){
-            window.location.href = '/Formulario_razas';
-        });
     });
 
 </script>
@@ -85,8 +74,6 @@
             <h3> Sigue complentando tu personaje </h3>
             <div class="flex row mt-1">
                 <button type="submit" class="green">Siguiente</button>
-                <button type="button" id="atras" class="red">Atrás</button>
-                <button type="button" id="menuPrincipal" class="red">Menu principal</button>
             </div>
         </div>
     </div>
