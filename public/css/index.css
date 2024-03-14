@@ -8,6 +8,39 @@ h2{
 }
 
 
+.boton_eliminar{
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: -100px;
+  padding: 10px 5px;
+  bottom: 2vmin;
+  right: 1vmin;
+  color: var(--neon-red);
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003)
+}
+
+.boton_eliminar:hover {
+  background: var(--neon-red);
+  color: var(--bg);
+  box-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-red), 0 0 25px var(--neon-red), 0 0 75px var(--neon-red);
+  transition-delay: .4s;
+}
+
+
+a span {
+  position: absolute;
+  display: block;
+}
+
+
+
 a.centered-link {
   position: static;
 }
