@@ -139,7 +139,10 @@
     //escribe en los select.
     document.getElementById("especies").addEventListener("change", modificarDivs);
 
-    
+    let menu = document.getElementById("menu");
+        menu.addEventListener('click', function(){
+            window.location.href = "/";
+        })
   })
 
 
@@ -172,6 +175,7 @@
     <h3> Sigue complentando tu personaje </h3>
     <div class="flex row mt-1">
       <button type="submit" class="green">Siguiente</button>
+      <button type="button" id="menu" class="red">Menu principal</button>
     </div>
   </div>
   <div class="flex column w-32 p-1">

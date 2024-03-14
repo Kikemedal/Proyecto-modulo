@@ -52,6 +52,16 @@
         var cambio = document.getElementById('profesiones');
         cambio.addEventListener('change', function() { cambiar_select(cambio) }, false);
 
+        let menu = document.getElementById("menu");
+        menu.addEventListener('click', function(){
+            window.location.href = "/";
+        })
+
+        let atras = document.getElementById("atras");
+        atras.addEventListener('click', function(){
+            window.history.back();
+        })
+
     });
 
 </script>
@@ -74,7 +84,10 @@
             <h3> Sigue complentando tu personaje </h3>
             <div class="flex row mt-1">
                 <button type="submit" class="green">Siguiente</button>
+                <button type="button" id="atras" class="red">Atrás</button>
+                <button type="button" id="menu" class="red">Menu principal</button>
             </div>
+            
         </div>
     </div>
 </form>
