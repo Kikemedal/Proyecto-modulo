@@ -9,6 +9,7 @@ h2{
 
 :root {
   --neon-red: #ea190a;
+  --neon-blue: #1ae3f5;
   --bg: #ffffff;
 }
 
@@ -22,6 +23,31 @@ h2{
 body {
   background: var(--bg);
 }
+.boton_registrarse{
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: -100px;
+  padding: 10px 5px;
+  bottom: 1vmin;
+  right: 1vmin;
+  color: var(--neon-blue);
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003)
+}
+
+.boton_registrarse:hover {
+  background: var(--neon-blue);
+  color: var(--bg);
+  box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 25px var(--neon-blue), 0 0 75px var(--neon-blue);
+  transition-delay: .4s;
+}
+
 
 
 .boton_eliminar{

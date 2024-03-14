@@ -35,9 +35,9 @@
                 </form>
             </div>
         @else
-            <div class="d-flex align-items-center">
-                <a href="{{ route('register') }}" class="btn btn-primary transparente boton-registrar">Registrate</a>
-            </div>
+        <a class="boton_registrarse" id="boton_registrarse" href="{{route('register')}}">
+            REGISTRATE
+          </a>
         @endif
     </div>
     </header>

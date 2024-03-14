@@ -36,3 +36,9 @@ Auth::routes();
 //Rutas de personajes
 
 Route::get('/personajes', "App\Http\Controllers\PersonajesController@index")->name("personajes.index");
+
+//Ruta de cierre de sesión
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
