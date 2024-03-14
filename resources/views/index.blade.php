@@ -27,9 +27,9 @@
             <div class="d-flex align-items-center justify-content-end">
                 <img class="user-icon" src="{{ asset('/img/usuario.png') }}" alt="User Icon">
                 <span class="user-name ms-3">{{ Auth::user()->name }}</span>
-                 <a href="{{ route('logout') }}" 
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
-                    class="text-white ms-3 mt-3">Cerrar sesión</a>
+                <a class="boton_eliminar" id="boton_eliminar" href="{{route('logout')}}">
+                    CERRAR SESIÓN
+                  </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
