@@ -28,10 +28,6 @@
                 <img class="user-icon" src="{{ asset('/img/usuario.png') }}" alt="User Icon">
                 <span class="user-name">{{ Auth::user()->name }}</span>
                 <a class="boton_eliminar" id="boton_eliminar" href="{{route('logout')}}">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
                     CERRAR SESIÓN
                   </a>
             </div>
